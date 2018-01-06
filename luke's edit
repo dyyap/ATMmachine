@@ -26,7 +26,7 @@ public class ATMmachine {
 		if(ans == "1"){
 			int checkNumber = generateNumber();
 			System.out.println("Enter the amount on the check: ");
-			ans = scan.next();
+			deposit = scan.next();
 		}else{
 			System.out.println("Enter the amount to deposit: ");
 			deposit = scan.nextInt();
@@ -45,7 +45,7 @@ public class ATMmachine {
 		if(ans == "1"){
 			int checkNumber = generateNumber();
 			System.out.println("Enter the amount on the check: ");
-			ans = scan.next();
+			withdrawal = scan.next();
 		}else{
 			System.out.println("Enter the amount to deposit: ");
 			withdrawal = scan.nextInt();
