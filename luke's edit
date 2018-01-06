@@ -22,11 +22,11 @@ public class ATMmachine {
 		int deposit = 0;
 		Scanner scan = new Scanner(System.in);
 		System.out.println("Would you like to deposit with cash (1) or check (2)?");
-		String ans = scan.next();
-		if(ans == "1"){
+		int ans = scan.nextInt();
+		if(ans == 2){
 			int checkNumber = generateNumber();
 			System.out.println("Enter the amount on the check: ");
-			deposit = scan.next();
+			deposit = scan.nextInt();
 		}else{
 			System.out.println("Enter the amount to deposit: ");
 			deposit = scan.nextInt();
@@ -41,17 +41,15 @@ public class ATMmachine {
 		Scanner scan = new Scanner(System.in);
 	
 		System.out.println("Would you like to withdraw with cash (1) or check (2)?");
-		String ans = scan.next();
-		if(ans == "1"){
+		int ans = scan.nextInt();
+		if(ans == 2){
 			int checkNumber = generateNumber();
 			System.out.println("Enter the amount on the check: ");
-			withdrawal = scan.next();
+			withdrawal = scan.nextInt();
 		}else{
-			System.out.println("Enter the amount to deposit: ");
+			System.out.println("Enter the amount to withdraw: ");
 			withdrawal = scan.nextInt();
 		}
-		System.out.println("How much would you like to take out?");
-		withdrawal = scan.nextInt();
 		BankAccount = BankAccount - withdrawal;
 		return BankAccount;
 	}
@@ -59,14 +57,20 @@ public class ATMmachine {
 	
 
 	public static void main(String[] args) {
-		Scanner sc = new Scanner(System.in);
-		System.out.println("Hello, welcome to the ATM.\nWould you like to deposit or withdraw? Enter 1 to deposit, enter 2 to withdraw.");
-		int ans = sc.nextInt();
-		if(ans == 1){
-			Deposit();
-		}
-		else{
-			Withdraw();
-		}
+		
+		int run = 1;
+		do{
+			Scanner sc = new Scanner(System.in);
+			System.out.println("Hello, welcome to the ATM.\nWould you like to deposit or withdraw? Enter 1 to deposit, enter 2 to withdraw.");
+			int ans = sc.nextInt();
+			if(ans == 1){
+				Deposit();
+			}
+			else{
+				Withdraw();
+			}
+			System.out.println("Would you like to make another transaction? Enter 1 for yes, 2 for no.");
+			run = sc.nextInt();
+		}while(run==1);
 	}
 }
